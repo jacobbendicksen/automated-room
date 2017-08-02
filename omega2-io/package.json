@@ -1,0 +1,63 @@
+{
+  "name": "omega2-io",
+  "version": "0.0.6",
+  "description": "Onion Omega2 & Omega2+ IO Plugin for Johnny-Five",
+  "main": "lib/omega2",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gunderson/omega2-io.git"
+  },
+  "keywords": [
+    "firmata",
+    "omega2",
+    "omega",
+    "onion",
+    "johnny-five"
+  ],
+  "author": {
+    "name": "Patrick Gunderson",
+    "email": "patrick.gunderson@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gunderson/omega2-io/issues"
+  },
+  "homepage": "https://github.com/gunderson/omega2-io",
+  "devDependencies": {
+    "bluebird": "^3.4.7",
+    "johnny-five": "^0.10.6"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "underscore": "^1.8.3"
+  },
+  "gitHead": "d6792c76007d48e09e8eaee2e246a8a43f437209",
+  "_id": "omega2-io@0.0.6",
+  "_shasum": "6c206bb27966df71acf2f15c1e71b92ed40656f7",
+  "_from": "omega2-io@0.0.6",
+  "_npmVersion": "3.10.9",
+  "_nodeVersion": "7.2.0",
+  "_npmUser": {
+    "name": "gunderson",
+    "email": "patrick.gunderson@gmail.com"
+  },
+  "dist": {
+    "shasum": "6c206bb27966df71acf2f15c1e71b92ed40656f7",
+    "tarball": "https://registry.npmjs.org/omega2-io/-/omega2-io-0.0.6.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "gunderson",
+      "email": "patrick.gunderson@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/omega2-io-0.0.6.tgz_1485832813828_0.030168420169502497"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/omega2-io/-/omega2-io-0.0.6.tgz"
+}
