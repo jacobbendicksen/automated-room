@@ -1,0 +1,23 @@
+{
+  "name": "automated-room",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacobbendicksen/automated-room.git"
+  },
+  "author": "Jacob Bendicksen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jacobbendicksen/automated-room/issues"
+  },
+  "homepage": "https://github.com/jacobbendicksen/automated-room#readme",
+  "dependencies": {
+    "johnny-five": "^0.11.3",
+    "omega2-io": "0.0.6"
+  }
+}
