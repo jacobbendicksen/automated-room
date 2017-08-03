@@ -24,7 +24,6 @@
         <form action="/lights/off" method="get">
           <button type="submit" class="btn btn-block btn-outline-danger">Off</button>
         </form>
-
         <form action="/lights-granular" method="get">
           <button type="submit" class="btn btn-block btn-outline-info">More</button>
         </form>
@@ -32,7 +31,17 @@
 
       <br />
       <h2>Music</h2>
-
+      <div class="music-buttons col-xs-4 col-md-3">
+        <form action="/music/play" method="get">
+          <button type="submit" class="btn btn-block btn-outline-success">Play</button>
+        </form>
+        <form action="/music/pause" method="get">
+          <button type="submit" class="btn btn-block btn-outline-danger">Pause</button>
+        </form>
+        <form action="/music-granular" method="get">
+          <button type="submit" class="btn btn-block btn-outline-info">More</button>
+        </form>
+      </div>
     </div>
     <div class="col-xs-1 col-md-2"></div>
   </div>

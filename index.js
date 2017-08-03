@@ -10,7 +10,11 @@ app.get('/', (req, res) => {
 
 app.get('/lights-granular', (req, res) => {
   res.sendFile(path.join(__dirname+'/lights-granular.html'));
-})
+});
+
+app.get('/music-granular', (req, res) => {
+  res.sendFile(path.join(__dirname + '/index.html'));
+});
 
 app.get('/lights/on', (req, res) => {
   console.log('lights on');
@@ -51,6 +55,17 @@ app.get('/lights/brightness/:percent', (req, res) => {
   var percent = req.params.percent;
   console.log('brightness at ' + percent);
   res.sendFile(path.join(__dirname + '/lights-granular.html'));
+});
+
+// MUSIC
+app.get('/music/play', (req, res) => {
+  console.log('play');
+  res.sendFile(path.join(__dirname + '/index.html'));
+});
+
+app.get('/music/pause', (req, res) => {
+  console.log('pause');
+  res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.listen(3000);
