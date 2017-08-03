@@ -1,52 +1,76 @@
 <!DOCTYPE html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato" />
 </head>
 
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
-
 <title>N21</title>
-<div class="row">
+
+<body>
+  <div class="row">
     <div class="col-xs-1 col-md-2"></div>
     <div class="col-xs-10 col-md-8 lato">
-        <h1 class="lato">N21 Control Center</h1>
-        <br>
-        <button type="button" class="btn btn-success">Lights On</button>
-        <br>
-        <button type="button" class="btn btn-danger">Lights Off</button>
+      <br />
+      <h1>N21 Control Center</h1>
+      <br>
+      <h2>Lights</h2>
+      <div class="light-buttons col-xs-4 col-md-3">
+        <form action="/lights/on" method="get">
+          <button type="submit" class="btn btn-block btn-outline-success">On</button>
+        </form>
+        <form action="/lights/off" method="get">
+          <button type="submit" class="btn btn-block btn-outline-danger">Off</button>
+        </form>
+
+        <form action="/lights-granular" method="get">
+          <button type="submit" class="btn btn-block btn-outline-info">More</button>
+        </form>
+      </div>
+
+      <br />
+      <h2>Music</h2>
+
     </div>
     <div class="col-xs-1 col-md-2"></div>
-</div>
-<div class="row"><br><br><br></div>
+  </div>
+  <div class="row"><br><br><br></div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+</body>
+
 
 <style>
-    body {
-        font-size: 14px;
-    }
+  body {
+    font-size: 20px;
+  }
 
-    .lato {
-        font-size: 100%;
-        font-family: "Lato", sans-serif;
-    }
+  .lato {
+    font-size: 100%;
+    font-family: "Lato", sans-serif;
+  }
 
-    .center {
-        text-align: center;
-    }
+  .center {
+    text-align: center;
+  }
 
-    @media screen and (max-width: 768px) {
-      h4 {
-        font-size: 175%;
-      }
-      h1 {
-        font-size: 250%;
-      }
-      h2 {
-        font-size: 18px;
-      }
-      h3 {
-        font-size: 16px;
-      }
+  @media screen and (max-width: 768px) {
+    h4 {
+      font-size: 175%;
     }
+    h1 {
+      font-size: 250%;
+    }
+    h2 {
+      font-size: 18px;
+    }
+    h3 {
+      font-size: 16px;
+    }
+  }
 </style>

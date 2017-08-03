@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
+</head>
+
+<title>N21</title>
+
+<body>
+  <div class="row">
+    <div class="col-xs-1 col-md-2"></div>
+    <div class="col-xs-10 col-md-8 lato">
+      <br />
+      <h1>N21 Control Center</h1>
+      <br>
+      <h2>Lights</h2>
+      <br />
+      <h3>Brightness</h3>
+      <div class="light-buttons col-xs-4 col-md-3">
+        <form action="/lights/brightness/0" method="get">
+          <button type="submit" class="btn btn-block btn-outline-info">0%</button>
+        </form>
+        <form action="/lights/brightness/25" method="get">
+          <button type="submit" class="btn btn-block btn-outline-info">25%</button>
+        </form>
+        <form action="/lights/brightness/50" method="get">
+          <button type="submit" class="btn btn-block btn-outline-info">50%</button>
+        </form>
+        <form action="/lights/brightness/75" method="get">
+          <button type="submit" class="btn btn-block btn-outline-info">75%</button>
+        </form>
+        <form action="/lights/brightness/100" method="get">
+          <button type="submit" class="btn btn-block btn-outline-info">100%</button>
+        </form>
+      </div>
+      <br /><br />
+      <h3>Modes</h3>
+      <div class="light-buttons col-xs-4 col-md-3">
+        <form action="/lights/night" method="get">
+          <button type="submit" class="btn btn-block btn-outline-primary">Night</button>
+        </form>
+        <form action="/lights/rainbow" method="get">
+          <button type="submit" class="btn btn-block btn-outline-warning">Rainbow</button>
+        </form>
+        <form action="/lights/white" method="get">
+          <button type="submit" class="btn btn-block btn-outline-info">White</button>
+        </form>
+      </div>
+      <br /><br />
+      <h3>RGB</h3>
+      <div class="light-buttons col-xs-4 col-md-3">
+        <form action="/lights/rgb" method="get">
+          <input type="text" class="form-control" name="red" placeholder="Red">
+          <input type="text" class="form-control" name="blue" placeholder="Green">
+          <input type="text" class="form-control" name="green" placeholder="Blue">
+          <button type="submit" class="btn btn-block btn-outline-success">Go</button>
+        </form>
+      </div>
+      <br /><br />
+      <h3>Hex</h3>
+      <div class="light-buttons col-xs-4 col-md-3">
+        <form action="/lights/hex" method="get">
+          <input type="text" class="form-control" name="hex" placeholder="#ff6900">
+          <button type="submit" class="btn btn-block btn-outline-success">Go</button>
+        </form>
+      </div>
+
+      <div class="light-buttons col-xs-4 col-md-3">
+        <br /><br /><br />
+        <form action="/" method="get">
+          <button type="submit" class="btn btn-block btn-outline-secondary">Back</button>
+        </form>
+      </div>
+
+    </div>
+    <div class="col-xs-1 col-md-2"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+</body>
+
+<style>
+  body {
+    font-size: 20px;
+  }
+
+  .lato {
+    font-size: 100%;
+    font-family: "Lato", sans-serif;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  @media screen and (max-width: 768px) {
+    h4 {
+      font-size: 175%;
+    }
+    h1 {
+      font-size: 250%;
+    }
+    h2 {
+      font-size: 18px;
+    }
+    h3 {
+      font-size: 16px;
+    }
+  }
+</style>
