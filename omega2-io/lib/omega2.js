@@ -1,43 +1,43 @@
-"use strict";
+'use strict';
 
 var FS = require( 'fs' );
 var CP = require( 'child_process' );
 var Emitter = require( 'events' ).EventEmitter;
 var Promise = require( 'bluebird' );
 var tick = process.setImmediate || process.nextTick;
-var _ = require('underscore');
+var _ = require( 'underscore' );
 
 var MODES = Object.freeze( require( './modes.json' ) );
 var pinGroups = require( './pingroups-omega2.json' );
 
 // translate lexical modes in json to numerical modes
-//pinGroups = pinGroups.map((group) => {
+// pinGroups = pinGroups.map((group) => {
 //	group.modes = group.modes.map((mode) => {
 //		return modes[mode];
 //	})
-//})
-pinGroups = _.mapObject(pinGroups, (group) => {
-	group.modes = _.mapObject(group.modes, (mode) => {
+// })
+pinGroups = _.mapObject( pinGroups, ( group ) => {
+	group.modes = _.mapObject( group.modes, ( mode ) => {
 		return MODES[mode];
-	});
-});
+	} );
+} );
+
+console.log( pinGroups );
 
 // assign pin modes for each pin based on group membership
 var pinModes = [];
-for (var groupName in pinGroups){
+for ( var groupName in pinGroups ) {
 	let group = pinGroups[groupName];
-	for (var i = 0; i < group.pins.length; i++){
+	for ( var i = 0; i < group.pins.length; i++ ) {
 
-		var pin = pinModes[group.pins[i]] || {modes:[]};
-		pin.modes = pin.modes.concat(group.modes);
+		var pin = pinModes[group.pins[i]] || { modes: [] };
+		pin.modes = pin.modes.concat( group.modes );
 		pinModes[group.pins[i]] = pin;
 	}
 }
 
 // redundancy for group names
 pinGroups.ANALOG = pinGroups.PWM;
-
-
 
 var boards = [ ];
 var _i2cBus;
