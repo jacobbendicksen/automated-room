@@ -10,14 +10,13 @@ var _ = require( 'underscore' );
 
 var MODES = Object.freeze( require( './modes.json' ) );
 var pinGroups = require( './pingroups-omega2.json' );
-var newPinGroups = {};
+var newPinGroups;
 
 // translate lexical modes in json to numerical modes
 var pinGroupKeys = _.keys( pinGroups );
 for ( var x = 0; x < pinGroupKeys.length; x++ ) {
 	var group = pinGroupKeys[x];
-	newPinGroups[group].pins = pinGroups[group].pins;
-	newPinGroups[group].modes = [];
+	newPinGroups[group] = { 'pins': pinGroups[group].pins, 'modes': [] };
 	for ( var y = 0; y < pinGroups[group].modes.length; y++ ) {
 		var numericalMode = MODES[pinGroups[group]].modes[y];
 		newPinGroups[group].modes.push( numericalMode );
