@@ -4,16 +4,22 @@ var Emitter = require( 'events' )
 	.EventEmitter;
 var Promise = require( 'bluebird' );
 var tick = process.setImmediate || process.nextTick;
+var _ = require( 'underscore' )
 
 var MODES = Object.freeze( require( './modes.json' ) );
 var pinGroups = require( './pingroups-omega2.json' );
 
 // translate lexical modes in json to numerical modes
-pinGroups = pinGroups.map( ( group ) => {
-	group.modes = group.modes.map( ( mode ) => {
-		return modes[ mode ];
+pinGroups = _.mapObject( pinGroups, ( val, key ) => {
+	key.modes = _.mapObject( key.modes, ( val, key ) => {
+		return MODES[ val ];
 	} );
 } );
+// pinGroups = pinGroups.map( ( group ) => {
+// 	group.modes = group.modes.map( ( mode ) => {
+// 		return modes[ mode ];
+// 	} );
+// } );
 
 // assign pin modes for each pin based on group membership
 var pinModes = [];
