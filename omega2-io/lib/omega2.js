@@ -15,11 +15,12 @@ var newPinGroups = {};
 // translate lexical modes in json to numerical modes
 var pinGroupKeys = _.keys( pinGroups );
 for ( var x = 0; x < pinGroupKeys.length; x++ ) {
-	newPinGroups[pinGroupKeys[x]].pins = pinGroups[pinGroupKeys[x]].pins;
-	newPinGroups.pinGroupKeys[x].modes = [];
-	for ( var y = 0; y < pinGroups[pinGroupKeys[x]].modes.length; y++ ) {
-		var numericalMode = MODES[pinGroups.pinGroupKeys[x]].modes[y];
-		newPinGroups[pinGroupKeys[x]].modes.push( numericalMode );
+	var group = pinGroupKeys[x];
+	newPinGroups[group].pins = pinGroups[group].pins;
+	newPinGroups[group].modes = [];
+	for ( var y = 0; y < pinGroups[group].modes.length; y++ ) {
+		var numericalMode = MODES[pinGroups[group]].modes[y];
+		newPinGroups[group].modes.push( numericalMode );
 	};
 };
 console.log( newPinGroups );
