@@ -14,6 +14,7 @@ var newPinGroups = {};
 
 // translate lexical modes in json to numerical modes
 var pinGroupKeys = _.keys( pinGroups );
+console.log(pinGroupKeys);
 for ( var x = 0; x < pinGroupKeys.length; x++ ) {
 	newPinGroups.pinGroupKeys[x].pins = pinGroups.pinGroupKeys[x].pins;
 	newPinGroups.pinGroupKeys[x].modes = [];
