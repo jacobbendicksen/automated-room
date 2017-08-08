@@ -12,8 +12,8 @@ var pinGroups = require( './pingroups-omega2.json' );
 pinGroups = pinGroups.map( ( group ) => {
 	group.modes = group.modes.map( ( mode ) => {
 		return modes[ mode ];
-	} )
-} )
+	} );
+} );
 
 // assign pin modes for each pin based on group membership
 var pinModes = [];
@@ -285,8 +285,7 @@ Omega2.prototype._i2cRead = function( continuous, address, register, bytesToRead
 
 		this.once( event, callback );
 
-		var args = [ '-y'
-			'0', toHexString( address ), toHexString( register )
+		var args = [ '-y', '0', toHexString( address ), toHexString( register )
 		];
 		var cp = CP.spawn( 'i2cget', args );
 		cp.on( 'data', ( data ) => {
@@ -323,7 +322,7 @@ var serialStates = {
 	READING: 1,
 	WRITING: 2,
 	MESSAGE_RECIEVED: 3
-}
+};
 
 Omega2.prototype.queryPinState = function( pinIndex, handler ) {
 	var pin = this.pins[ pinIndex ];
@@ -380,8 +379,8 @@ Omega2.prototype.serialOpen = function( baudRate, channel ) {
 		buffer: [],
 		readStream: readStream,
 		writeStream: writeStream
-	}
-}
+	};
+};
 
 Omega2.prototype.serialClose = function( channel ) {
 	channel = channel || 0;
@@ -389,26 +388,26 @@ Omega2.prototype.serialClose = function( channel ) {
 	serial.readStream && serial.readStream.end();
 	serial.writeStream && serial.writeStream.end();
 	return this;
-}
+};
 
 Omega2.prototype.serialListen = function( messageTerminator, channel ) {
-	messageTerminator = messageTerminator || "\n";
+	messageTerminator = messageTerminator || '\n';
 	channel = channel || 0;
 
 	var serial = this.serial[ channel ];
 	serial.messageTerminator = messageTerminator;
 	if ( serial.encoding !== encoding ) {
 		serial.readStream.setEncoding( encoding );
-	}
+	};
 
-	readStream.on( 'data', function( chunk ) {
+	serial.readStream.on( 'data', function( chunk ) {
 		serial.buffer = serial.buffer.concat( Array.from( chunk ) );
 		this.serialOnMessage( serial );
 	} );
 	return this;
-}
+};
 
-Omega2.prototype.serialOnMessage( serialObject ) {
+Omega2.prototype.serialOnMessage = function( serialObject ) {
 	while ( serialObject.indexOf( serialObject.messageTerminator ) > -1 ) {
 		var termIndex = serialObject.indexOf( serialObject.messageTerminator );
 		var message = buffer.splice( 0, termIndex + 1 );
@@ -416,14 +415,14 @@ Omega2.prototype.serialOnMessage( serialObject ) {
 		this.emit( 'serial:message', serialObject );
 	}
 	return this;
-}
+};
 
 Omega2.prototype.serialWrite = function( message, encoding, channel ) {
 	channel = channel || 0;
 	var serial = this.serial[ channel ];
 	serial.writeStream.write( message, encoding );
 	return this;
-}
+};
 
 // Necessary for Firmata.js compatibility.
 Omega2.prototype.sendI2CConfig = Omega2.prototype.i2cConfig;
@@ -457,10 +456,10 @@ Omega2.prototype.sendI2CWriteRequest = Omega2.prototype.i2cWrite;
 
 function defer() {
 	var deferred = {};
-	new Promise( _resolve, _reject ) {
+	new Promise( function( _resolve, _reject ) {
 		deferred.resolve = _resolve;
 		deferred.reject = _reject;
-	}
+	} );
 	return deferred;
 }
 
