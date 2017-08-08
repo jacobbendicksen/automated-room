@@ -10,7 +10,7 @@ var _ = require( 'underscore' );
 
 var MODES = Object.freeze( require( './modes.json' ) );
 var pinGroups = require( './pingroups-omega2.json' );
-var newPinGroups;
+var newPinGroups = {};
 
 // translate lexical modes in json to numerical modes
 var pinGroupKeys = _.keys( pinGroups );
