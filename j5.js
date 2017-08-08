@@ -8,7 +8,7 @@ var board = new five.Board({
 });
 
 board.on('ready', function () {
-  var led = new five.Led();
+  var led = new five.Led(0);
   led.blink();
 
   this.repl.inject({ led: led });
