@@ -4,7 +4,7 @@ var Emitter = require( 'events' )
 	.EventEmitter;
 var Promise = require( 'bluebird' );
 var tick = process.setImmediate || process.nextTick;
-var _ = require( 'underscore' )
+var _ = require( 'underscore' );
 
 var MODES = Object.freeze( require( './modes.json' ) );
 var pinGroups = require( './pingroups-omega2.json' );
@@ -23,7 +23,7 @@ pinGroups = _.mapObject( pinGroups, ( val, key ) => {
 
 // assign pin modes for each pin based on group membership
 var pinModes = [];
-for ( var groupName in pinGroups ) {
+for ( var groupName = 0; groupName < pinGroups.length; groupName++ ) {
 	let group = pinGroups[ groupName ];
 	for ( var i = 0; i < group.pins.length; i++ ) {
 
@@ -86,7 +86,7 @@ Omega2.prototype = Object.create( Emitter.prototype, {
 		value: Omega2
 	},
 	MODES: {
-		value: modes
+		value: MODES
 	},
 	HIGH: {
 		value: 1
@@ -101,26 +101,26 @@ Omega2.prototype.pinMode = function( pin, mode ) {
 	this.pins[ pinIndex ].mode = mode;
 
 	switch ( mode ) {
-		case modes.OUTPUT:
+		case MODES.OUTPUT:
 			CP.spawn( 'fast-gpio', [ 'set-output', pinIndex ] );
-			this.pins[ pinIndex ].mode = modes.OUTPUT;
+			this.pins[ pinIndex ].mode = MODES.OUTPUT;
 			this.pins[ pinIndex ].isPwm = false;
 			break;
 
-		case modes.INPUT:
+		case MODES.INPUT:
 			CP.spawn( 'fast-gpio', [ 'set-input', pinIndex ] );
-			this.pins[ pinIndex ].mode = modes.INPUT;
+			this.pins[ pinIndex ].mode = MODES.INPUT;
 			this.pins[ pinIndex ].isPwm = false;
 			break;
 
-		case modes.ANALOG:
+		case MODES.ANALOG:
 			// intentional fallthrough
-		case modes.PWM:
-			this.pins[ pinIndex ].mode = modes.PWM;
+		case MODES.PWM:
+			this.pins[ pinIndex ].mode = MODES.PWM;
 			this.pins[ pinIndex ].isPwm = true;
 			break;
 
-		case modes.SERVO:
+		case MODES.SERVO:
 			console.error( 'Omega2 doesn\'t support servo mode' );
 			break;
 	}
@@ -341,13 +341,13 @@ Omega2.prototype.queryPinState = function( pinIndex, handler ) {
 		var changed = false;
 		if ( data.indexOf( ': output' ) > -1 ) {
 
-			if ( pin.mode !== modes.OUTPUT ) {
-				pin.mode = modes.OUTPUT;
+			if ( pin.mode !== MODES.OUTPUT ) {
+				pin.mode = MODES.OUTPUT;
 				changed = true;
 			}
 		} else if ( data.indexOf( ': input' ) > -1 ) {
-			if ( pin.mode !== modes.INPUT ) {
-				pin.mode = modes.INPUT;
+			if ( pin.mode !== MODES.INPUT ) {
+				pin.mode = MODES.INPUT;
 				changed = true;
 			}
 		}
