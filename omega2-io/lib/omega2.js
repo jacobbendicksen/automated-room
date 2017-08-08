@@ -10,13 +10,25 @@ var _ = require( 'underscore' );
 
 var MODES = Object.freeze( require( './modes.json' ) );
 var pinGroups = require( './pingroups-omega2.json' );
+var newPinGroups;
 
 // translate lexical modes in json to numerical modes
-pinGroups = _.mapObject( pinGroups, ( val, key ) => {
-	key.modes = _.mapObject( key.modes, ( val, key ) => {
-		return MODES[ val ];
-	} );
-} );
+var pinGroupKeys = _.keys( pinGroups );
+for ( var x = 0; x < pinGroupKeys.length; x++ ) {
+	newPinGroups.pinGroupKeys[x].pins = pinGroups.pinGroupKeys[x].pins;
+	newPinGroups.pinGroupKeys[x].modes = [];
+	for ( var y = 0; y < pinGroups.pinGroupKeys[x].modes.length; y++ ) {
+		var numericalMode = MODES.pinGroups.pinGroupKeys[x].modes[y];
+		newPinGroups.pinGroupKeys[x].modes.push( numericalMode );
+	};
+};
+console.log( newPinGroups );
+pinGroups = newPinGroups;
+// pinGroups = _.mapObject( pinGroups, ( val, key ) => {
+// 	key.modes = _.mapObject( key.modes, ( val, key ) => {
+// 		return MODES[ val ];
+// 	} );
+// } );
 // pinGroups = pinGroups.map( ( group ) => {
 // 	group.modes = group.modes.map( ( mode ) => {
 // 		return modes[ mode ];
