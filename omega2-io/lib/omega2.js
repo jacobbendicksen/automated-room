@@ -1,3 +1,5 @@
+'use strict';
+
 var FS = require( 'fs' );
 var CP = require( 'child_process' );
 var Emitter = require( 'events' )
