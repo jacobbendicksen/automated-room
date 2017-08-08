@@ -87,7 +87,9 @@ Omega2.prototype = Object.create( Emitter.prototype, {
 
 Omega2.prototype.pinMode = function( pin, mode ) {
 	var pinIndex = pin;
-	this.pins[ pinIndex ].mode = mode;
+	this.pins[ pinIndex ] = {
+		mode: mode
+	};
 
 	switch ( mode ) {
 		case MODES.OUTPUT:
@@ -280,8 +282,7 @@ Omega2.prototype._i2cRead = function( continuous, address, register, bytesToRead
 
 		this.once( event, callback );
 
-		var args = [ '-y', '0', toHexString( address ), toHexString( register )
-		];
+		var args = [ '-y', '0', toHexString( address ), toHexString( register ) ];
 		var cp = CP.spawn( 'i2cget', args );
 		cp.on( 'data', ( data ) => {
 			afterRead( null, 1, data );
