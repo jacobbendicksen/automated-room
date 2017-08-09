@@ -19,7 +19,7 @@ board.on('ready', function() {
   // var led13 = new five.Led(13);
   // led13.blink();
 
-  this.repl.inject({
-    led: led0
-  });
+  // this.repl.inject({
+  //   led: led0
+  // });
 });
