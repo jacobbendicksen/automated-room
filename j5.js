@@ -2,24 +2,25 @@
 
 var five = require('johnny-five');
 var Omega2 = require('./omega2-io');
-// var SerialPort = require('serialport').SerialPort;
-// var serialport = new SerialPort('/dev/ttyACM0', {
-//   baudrate: 57600
-// });
-
-var board = new five.Board({
-  io: new Omega2()
-  // port: serialport
+var SerialPort = require('serialport').SerialPort;
+var serialport = new SerialPort('/dev/ttyACM0', {
+  baudrate: 57600
 });
 
-board.on('ready', function() {
-  var led0 = new five.Led(0);
-  led0.blink();
+var omega = new five.Board({
+  io: new Omega2()
+});
 
-  // var led13 = new five.Led(13);
-  // led13.blink();
+omega.on('ready', function() {
+  var led = new five.Led(0);
+  led.blink();
+});
 
-  // this.repl.inject({
-  //   led: led0
-  // });
+var arduino = new five.Board({
+  port: serialport
+});
+
+arduino.on('ready', function() {
+  var led = new five.Led(13);
+  led.blink();
 });
