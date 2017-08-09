@@ -2,7 +2,7 @@
 
 var five = require('johnny-five');
 var Omega2 = require('./omega2-io');
-var SerialPort = require('serialport').SerialPort;
+var SerialPort = require('./node_modules/johnny-five/node_modules/serialport').SerialPort;
 var serialport = new SerialPort('/dev/ttyACM0', {
   baudrate: 57600
 });
