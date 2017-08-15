@@ -6,6 +6,7 @@ var SerialPort = require('./node_modules/johnny-five/node_modules/serialport').S
 var serialport = new SerialPort('/dev/ttyACM0', {
   baudrate: 57600
 });
+var pixel = require('node-pixel');
 
 // var omega = new five.Board({
 //   io: new Omega2()

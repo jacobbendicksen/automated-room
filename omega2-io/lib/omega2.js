@@ -27,7 +27,6 @@ for ( var groupName = 0; groupName < pinGroups.length; groupName++ ) {
 // redundancy for group names
 pinGroups.ANALOG = pinGroups.PWM;
 
-
 var boards = [];
 var _i2cBus;
 var _i2cPollDelay; // delay before each i2c read in milliseconds
